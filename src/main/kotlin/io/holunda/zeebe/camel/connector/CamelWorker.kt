@@ -4,9 +4,12 @@ import io.camunda.zeebe.client.api.response.ActivatedJob
 import io.camunda.zeebe.client.api.worker.JobClient
 import io.camunda.zeebe.spring.client.annotation.ZeebeVariable
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker
+import io.holunda.zeebe.camel.component.DynamicCamelTaskWorker
 import mu.KLogging
 
-class CamelWorker {
+class CamelWorker(
+  val sendToCamel: DynamicCamelTaskWorker
+) {
   companion object : KLogging()
 
   init {
@@ -21,5 +24,7 @@ class CamelWorker {
 
     logger.info { "Calling camel client for endpoint '$endpoint'" }
     logger.trace { "Endpoint: $endpoint, Payload: $payload" }
+
+    sendToCamel(endpoint, payload)
   }
 }
