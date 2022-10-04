@@ -6,10 +6,14 @@ import io.camunda.zeebe.spring.client.EnableZeebeClient
 import io.camunda.zeebe.spring.client.annotation.ZeebeVariable
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker
 import mu.KLogging
+import org.springframework.stereotype.Component
 
 @EnableZeebeClient
+@Component
 class CamelWorker {
-
+  init {
+      logger.info { "initialised" }
+  }
   companion object : KLogging()
 
   @ZeebeWorker(type = "io.holunda:camel:1", autoComplete = true)

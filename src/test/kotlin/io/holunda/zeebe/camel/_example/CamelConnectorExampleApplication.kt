@@ -1,11 +1,13 @@
 package io.holunda.zeebe.camel._example
 
+import io.holunda.zeebe.camel.connector.CamelWorker
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.info.Info
 import mu.KLogging
 import org.apache.camel.builder.RouteBuilder
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Import
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -20,6 +22,7 @@ fun main() = runApplication<CamelConnectorExampleApplication>().let {  }
   info = Info(title= "camel connector example", description = "hackdays 2022", version = "1")
 )
 @SpringBootApplication
+@Import(value = [CamelWorker::class])
 class CamelConnectorExampleApplication {
 }
 
@@ -45,7 +48,6 @@ class SimulatingConnectorController {
   }
 }
 
-@Component
 class MyRoute : RouteBuilder() {
   @Throws(Exception::class)
   override fun configure() {
