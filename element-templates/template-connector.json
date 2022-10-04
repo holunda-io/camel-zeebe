@@ -1,7 +1,33 @@
 {
-  "type": "Hidden",
-  "value": "io.holunda:zeebe-camel:1",
-  "binding": {
-    "type": "zeebe:taskDefinition:type"
-  }
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Camel Connector",
+  "id": "321792dd-4e55-41bc-a8e4-14a61e2a4371",
+  "description": "Camel Connector for Camunda 8",
+  "appliesTo": [
+    "bpmn:ServiceTask",
+    "bpmn:SendTask",
+    "bpmn:IntermediateThrowEvent"
+  ],
+  "documentationRef": "https://docs.camunda.io/docs/components/modeler/desktop-modeler/element-templates/defining-templates/#icons",
+  "properties": [
+    {
+      "label": "Type",
+      "type": "String",
+      "value": "io.holunda:camel:1",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "label": "Endpoint",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "endpoint"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    }
+  ]
 }
