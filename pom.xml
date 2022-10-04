@@ -17,7 +17,7 @@
     <kotlin.version>1.7.20</kotlin.version>
     <java.version>11</java.version>
     <spring-boot.version>2.7.4</spring-boot.version>
-    <camel.version>3.18.2</camel.version>
+    <camel.version>3.19.0</camel.version>
 
     <!-- TEST -->
     <kotlin-logging.version>3.0.0</kotlin-logging.version>
@@ -79,9 +79,19 @@
       <version>8.0.9</version>
     </dependency>
     <dependency>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-support</artifactId>
+    </dependency>
+
 
     <!-- KOTLIN -->
     <dependency>
@@ -102,6 +112,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>1.6.6</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -249,7 +265,7 @@
           <configuration>
             <jvmTarget>${java.version}</jvmTarget>
             <compilerPlugins>
-              <!--<plugin>spring</plugin>-->
+              <plugin>spring</plugin>
               <!--plugin>jpa</plugin-->
               <plugin>no-arg</plugin>
               <plugin>all-open</plugin>
