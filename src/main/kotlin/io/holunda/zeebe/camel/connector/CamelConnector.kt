@@ -17,7 +17,7 @@ class CamelConnector : OutboundConnectorFunction {
 
   override fun execute(context: OutboundConnectorContext): Any? {
 
-    logger.info { "Connector is called." }
+    logger.warn { "Connector is called." }
     val connectorRequest = context.getVariablesAsType(CamelRequest::class.java)
 
     context.validate(connectorRequest)
