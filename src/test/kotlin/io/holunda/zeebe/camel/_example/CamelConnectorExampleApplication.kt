@@ -1,9 +1,13 @@
 package io.holunda.zeebe.camel._example
 
+import io.holunda.zeebe.camel.component.DynamicRouteEndpoint
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.info.Info
 import mu.KLogging
+import org.apache.camel.CamelContext
+import org.apache.camel.FluentProducerTemplate
 import org.apache.camel.builder.RouteBuilder
+import org.apache.camel.impl.engine.DefaultFluentProducerTemplate
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Component
@@ -24,32 +28,30 @@ class CamelConnectorExampleApplication {
 }
 
 @RestController
-class SimulatingConnectorController {
+class SimulatingConnectorController(
+  val camel: CamelContext
+) {
   companion object : KLogging() {
 
   }
 
   @PostMapping
   fun connect(@RequestParam endPoint: String, @RequestBody body: Any) {
-    logger.info {
-      """
-
-        connect:
-
-        endPoint: $endPoint
-        body: $body
-
-
-      """.trimIndent()
-    }
+    camel.createFluentProducerTemplate()
+      .withBody(body)
+      .to("direct:dynamic")
+      .request()
   }
 }
 
 @Component
-class MyRoute : RouteBuilder() {
+class DynamicRoute : RouteBuilder() {
   @Throws(Exception::class)
   override fun configure() {
-    from("timer:foo").to("log:bar")
+    from("direct:dynamic")
+      .log("inside")
+      .to("log:info")
+
   }
 }
 
