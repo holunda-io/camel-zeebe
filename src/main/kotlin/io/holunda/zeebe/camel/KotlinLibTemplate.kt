@@ -1,4 +1,4 @@
-package io.holunda.zeebe.camel
+package io.holunda.zeebe.camel.io.holunda.zeebe.camel
 
 object KotlinLibTemplate {
 

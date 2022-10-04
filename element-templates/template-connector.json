@@ -1,0 +1,7 @@
+{
+  "type": "Hidden",
+  "value": "io.holunda:zeebe-camel:1",
+  "binding": {
+    "type": "zeebe:taskDefinition:type"
+  }
+}

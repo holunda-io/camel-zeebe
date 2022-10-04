@@ -44,6 +44,19 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- Camunda -->
+    <dependency>
+      <groupId>io.camunda.connector</groupId>
+      <artifactId>connector-core</artifactId>
+      <version>0.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>3.18.1</version>
+    </dependency>
+
     <!-- KOTLIN -->
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
