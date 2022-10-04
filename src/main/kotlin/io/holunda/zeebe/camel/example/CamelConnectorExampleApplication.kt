@@ -1,4 +1,4 @@
-package io.holunda.zeebe.camel._example
+package io.holunda.zeebe.camel.example
 
 import io.holunda.zeebe.camel.connector.CamelConfiguration
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
@@ -22,6 +22,7 @@ fun main() = runApplication<CamelConnectorExampleApplication>().let { }
 @SpringBootApplication
 @Import(value = [CamelConfiguration::class])
 class CamelConnectorExampleApplication {
+
 }
 
 @RestController
