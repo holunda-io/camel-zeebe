@@ -3,22 +3,26 @@ package io.holunda.zeebe.camel.connector
 import io.camunda.zeebe.client.api.response.ActivatedJob
 import io.camunda.zeebe.client.api.worker.JobClient
 import io.camunda.zeebe.spring.client.EnableZeebeClient
+import io.camunda.zeebe.spring.client.annotation.ZeebeVariable
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker
 import mu.KLogging
+import org.springframework.stereotype.Component
 
 @EnableZeebeClient
 class CamelWorker {
+  companion object : KLogging()
 
-  companion object: KLogging()
+  init {
+    logger.warn { "initialized worker" }
+  }
 
-  @ZeebeWorker(type = "io.holunda:camel:1")
-  fun camel(client: JobClient, job: ActivatedJob) {
-    logger.info { "Calling camel client" }
+  @ZeebeWorker(type = "io.holunda:camel:1", autoComplete = true)
+  fun camel(client: JobClient, job: ActivatedJob, @ZeebeVariable endpoint: String) {
+    logger.info { "Calling camel client for endpoint '$endpoint'" }
 
     val variables = job.variablesAsMap
-    logger.trace { "Variables: $variables" }
-    client.newCompleteCommand(job.key)
-      .send()
-      .exceptionally { throwable -> throw RuntimeException("Could not complete job $job", throwable) }
+    logger.info { "Endpoint: $endpoint Variables: $variables" }
+
+
   }
 }

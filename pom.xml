@@ -108,18 +108,18 @@
       <version>${kotlin-logging.version}</version>
     </dependency>
 
-    <!-- TEST -->
+    <!-- Example -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.6.6</version>
-      <scope>test</scope>
+      <version>1.6.11</version>
     </dependency>
+
+    <!-- TEST -->
     <dependency>
       <groupId>org.mockito.kotlin</groupId>
       <artifactId>mockito-kotlin</artifactId>

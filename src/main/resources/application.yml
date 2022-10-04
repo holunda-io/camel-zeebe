@@ -1,0 +1,11 @@
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
+zeebe:
+  client:
+    cloud:
+      region: bru-2
+      clusterId: 57fb68c2-b712-4157-93c7-26451a1c2bb7
+      clientId: 0qsSm2XEtU8t1wblYR_FvBJ5OMCHRldr
+      clientSecret: rWj5egpScuTefkg-zphkE2yyX2yGdcUo68kOHsYw.TsDcdS23P2dVIoWtjFR97_p
