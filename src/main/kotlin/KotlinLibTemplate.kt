@@ -1,4 +1,4 @@
-package BASE_GROUP_ID
+package io.holunda.zeebe.camel
 
 object KotlinLibTemplate {
 
