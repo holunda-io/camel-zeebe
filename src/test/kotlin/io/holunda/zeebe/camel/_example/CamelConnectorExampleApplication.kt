@@ -1,4 +1,4 @@
-package io.holunda.zeebe.camel.io.holunda.zeebe.camel._example
+package io.holunda.zeebe.camel._example
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
