@@ -16,6 +16,8 @@
 
     <kotlin.version>1.7.20</kotlin.version>
     <java.version>11</java.version>
+    <spring-boot.version>2.7.4</spring-boot.version>
+    <camel.version>3.18.2</camel.version>
 
     <!-- TEST -->
     <kotlin-logging.version>3.0.0</kotlin-logging.version>
@@ -30,6 +32,27 @@
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-bom</artifactId>
         <version>${kotlin.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-spring-boot-bom</artifactId>
+        <version>${camel.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-bom</artifactId>
+        <version>${camel.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -54,7 +77,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
-      <version>3.18.1</version>
     </dependency>
 
     <!-- KOTLIN -->
@@ -73,6 +95,11 @@
     </dependency>
 
     <!-- TEST -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.mockito.kotlin</groupId>
       <artifactId>mockito-kotlin</artifactId>
