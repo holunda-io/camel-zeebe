@@ -23,7 +23,7 @@
     <kotlin-logging.version>3.0.0</kotlin-logging.version>
     <junit5.version>5.9.1</junit5.version>
     <mockito.version>4.0.0</mockito.version>
-    <assertj.version>3.23.1</assertj.version>
+    <assertj.version>3.27.7</assertj.version>
   </properties>
 
   <dependencyManagement>
